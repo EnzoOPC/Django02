@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from .models import User
 
-def home(request):
-    return render(request, "users/home.html")
+
+def users_list(request):
+    users = User.objects.all()
+
+    return render(request, "users/users_list.html", {"users": users})
